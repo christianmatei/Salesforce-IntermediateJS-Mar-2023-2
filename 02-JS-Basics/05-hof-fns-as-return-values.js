@@ -37,3 +37,26 @@ logMultiply(100,200)
 // Operation started...
 // Multiply Result: 20000
 // Operation completed...
+
+
+//profiling
+function profile(operationFn){
+    return function(x,y){
+        console.time('operation')
+        operationFn(x,y)
+        console.timeEnd('operation')
+    }
+}
+
+var profileAdd = profile(add)
+profileAdd(100,200)
+
+var profileSubtract = profile(subtract)
+profileSubtract(100,200)
+
+// combining logging & profiling (function composition)
+var logAdd = logOperation(add)
+var profileLogAdd = profile(logAdd)
+profileLogAdd(100,200)
+
+profile(logOperation(subtract))(100, 200)
