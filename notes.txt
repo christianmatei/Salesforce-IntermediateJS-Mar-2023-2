@@ -63,5 +63,8 @@ Basics
         - functions
             - variadic functions
             - functions are objects
+            - higher order functions
+                * functions can be passed as arguments
+                * functions can be retured as return values
 
             
