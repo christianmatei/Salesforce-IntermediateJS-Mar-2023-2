@@ -1,0 +1,21 @@
+Magesh Kuppan
+
+Schedule:
+    Session-1   : 1:30 hrs
+    Tea Break   : 20 mins
+    Session-2   : 1:30 hour
+    Lunch Break : 1 hour
+    Session-3   : 1:30 hrs
+    Tea Break   : 20 mins
+    Session-4   : 1:30 hour
+
+Methodology:
+    - No powerpoints
+    - 100% code driven
+    - Repository : https://github.com/tkmagesh/Salesforce-IntermediateJS-Mar-2023-2
+
+About You:
+    - Name
+    - Where are you from?
+    - Experience in JS (frameworks? / libraries?)
+    - Specific expectations?
