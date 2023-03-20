@@ -37,3 +37,28 @@ Basics
         Server:
             Server Drive Web Applications
             APIs
+
+    Data Types
+        number, string, boolean
+        object, function, undefined
+
+        typeof 
+
+
+    Constructs
+        var, if else, switch case default, for, for in, while, throw, try catch finally, function
+
+    APIs
+        Date, Array, Error, Math, timer (setTimeout, clearTimeout, setInterval, clearInterval), RegEx
+
+    Unique Aspects
+        - Loosely typed
+            var x;
+        - dynamic
+            Object = collection of key/value paris (map / dictionary)
+            attributes are accessed using '.' and '[]' notations
+            Convention:
+                Use the '.' when an existing attribute is updated
+                Use the '[]' when a new attribute has to be added
+
+            
