@@ -1,5 +1,10 @@
-function add(x,y){
-    return x + y
+function add(){
+    var result = 0
+    for (var i = 0; i < arguments.length; i++){
+        if (!isNaN(arguments[i]))
+            result += parseInt(arguments[i])
+    }
+    return result
 }
 
 //Modify the above function to behave as the following
