@@ -88,4 +88,8 @@ Function Invocation Patterns
         this => obj
     2. Invoked as a function
         this => global scope (window in the browser)
+    3. Using the "call" method of the function
+    4. Using the "apply" method of the function
+
+    
 
