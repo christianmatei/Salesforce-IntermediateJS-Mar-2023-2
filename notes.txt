@@ -19,3 +19,21 @@ About You:
     - Where are you from?
     - Experience in JS (frameworks? / libraries?)
     - Specific expectations?
+
+Topics:
+    1. Basics
+    2. Unique aspects of JS (ES5)
+    3. ES6 features
+    4. JS Applied
+    5. Tooling, Testing etc
+
+Basics
+    Usage
+        Browser:
+            In traditional web apps:
+                Data validations and DOM manipulation
+            In Single Page Applications:
+                A complete UI layer
+        Server:
+            Server Drive Web Applications
+            APIs

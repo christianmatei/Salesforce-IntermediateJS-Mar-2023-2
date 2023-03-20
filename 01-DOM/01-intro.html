@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Calculator</title>
+    <style>
+        body{
+            margin-left: 50px;
+        }
+        label{
+            display: block;
+        }
+        .price {
+            font-size: 18pt;
+        }
+        div{
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        
+        function onBtnCalculateClick(){
+            // locate the textboxes
+            var txtUnitCost = document.getElementById('txtUnitCost')
+            var txtUnits = document.getElementById('txtUnits');
+
+            //extract the values
+            var unitCost = Number(txtUnitCost.value),
+                units = Number(txtUnits.value);
+
+            //process the data
+            var productCost = unitCost * units
+
+            //display the result
+            var spanPrice = document.getElementById('spanPrice')
+            spanPrice.innerText = productCost;            
+        }
+        function onDocumentLoad(){
+            var btnCalculate = document.getElementById('btnCalculate');
+            btnCalculate.addEventListener('click', onBtnCalculateClick)
+        }
+        window.addEventListener('load', onDocumentLoad)
+    </script>
+</head>
+<body>
+    <h1>Price Calculator</h1>
+    <div>
+        <label for="">Units Cost :</label>
+        <input type="number" name="" id="txtUnitCost">
+    </div>
+    <div>
+        <label for="">Units :</label>
+        <input type="number" name="" id="txtUnits">
+    </div>
+    <div>
+        <button id="btnCalculate">Calculate</button>
+    </div>
+    <div>
+        <span id="spanPrice" class="price">[Price]</span>
+    </div>
+
+</body>
+</html>
