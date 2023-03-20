@@ -70,6 +70,8 @@ Basics
 
 Implicit values of a function
     - this
+        invocation context
+
     - arguments
         Array like object with all the argument values passed to the function
         arguments.length => # of argument values
@@ -79,4 +81,9 @@ Implicit values of a function
 
 Function Invocation Patterns
     There are 6 ways to invoke a function in JS
+    IT DOES NOT MATTER WHERE A FUNCTION OR WHO OWNS THE FUNCTION
+        WHAT MATTERS IS, "HOW" THE FUNCTION IS INVOKED
+
+    1. Invoked as a method of an object (obj)
+        this => obj
 
