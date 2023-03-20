@@ -11,8 +11,6 @@ fn(10)
 fn('Magesh')
 //Output : fn invoked
 
-var car
-
 var car = {
     id: 100,
     model: 'Mustang',

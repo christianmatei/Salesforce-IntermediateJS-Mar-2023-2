@@ -62,5 +62,6 @@ Basics
                 Use the '[]' when a new attribute has to be added
         - functions
             - variadic functions
+            - functions are objects
 
             
