@@ -90,6 +90,11 @@ Function Invocation Patterns
         this => global scope (window in the browser)
     3. Using the "call" method of the function
     4. Using the "apply" method of the function
+    5. As an "Immediately Invoked Function Expression" (IIFE)
 
     
+Create a html page "click-tracker.html"
+    with a button "Track"
+    and a div
 
+    The page tracks how many times the button clicked and update the count in the div
