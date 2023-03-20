@@ -67,4 +67,16 @@ Basics
                 * functions can be passed as arguments
                 * functions can be retured as return values
 
-            
+
+Implicit values of a function
+    - this
+    - arguments
+        Array like object with all the argument values passed to the function
+        arguments.length => # of argument values
+        arguments[0] => first argument value
+        arguments[1] => second argument value
+        ....
+
+Function Invocation Patterns
+    There are 6 ways to invoke a function in JS
+
