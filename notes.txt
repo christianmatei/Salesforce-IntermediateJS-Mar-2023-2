@@ -86,4 +86,6 @@ Function Invocation Patterns
 
     1. Invoked as a method of an object (obj)
         this => obj
+    2. Invoked as a function
+        this => global scope (window in the browser)
 
