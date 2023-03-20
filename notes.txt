@@ -60,5 +60,7 @@ Basics
             Convention:
                 Use the '.' when an existing attribute is updated
                 Use the '[]' when a new attribute has to be added
+        - functions
+            - variadic functions
 
             
