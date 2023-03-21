@@ -91,6 +91,7 @@ Function Invocation Patterns
     3. Using the "call" method of the function
     4. Using the "apply" method of the function
     5. As an "Immediately Invoked Function Expression" (IIFE)
+    6. Using the "new" keyword (Constructor Function)
 
     
 Create a html page "click-tracker.html"
@@ -106,3 +107,11 @@ Pure Function
     Will always return the same result for the given inputs
     
     That does not have any "side effects"
+
+Constructor Functions
+    Functions that behave like class
+    There is not syntax difference between a normal function and a constructor function
+    Invoked with the "new" keyword
+        this => new object
+        this => returned by default
+    Convention : Constructor Function name starts with uppercase
