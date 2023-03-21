@@ -74,3 +74,38 @@ var isOdd = memoize(function (no) {
     console.log('processing ', no)
     return no % 2 !== 0 ? true : false
 })
+
+
+// Generic memoize - v2.0
+function memoize(fn) {
+    var cache = {}
+    return function() {
+        var key = JSON.stringify(arguments)
+        if (cache.hasOwnProperty(key))
+            return cache[key]
+        cache[key] = fn.apply(this, arguments)
+        return cache[key]
+    }
+}
+var add = memoize(function (x,y){
+    console.log('processing ', x , ' and ', y)
+    return x + y
+})
+
+// Generic memoize - v3.0
+function memoize(fn, keyFn) {
+    var cache = {}
+    return function () {
+        var key = keyFn.apply(this, arguments)
+        if (cache.hasOwnProperty(key))
+            return cache[key]
+        cache[key] = fn.apply(this, arguments)
+        return cache[key]
+    }
+}
+var add = memoize(function (x, y) {
+    console.log('processing ', x, ' and ', y)
+    return x + y
+}, function(x,y){
+    return x + '-' + y;
+})
