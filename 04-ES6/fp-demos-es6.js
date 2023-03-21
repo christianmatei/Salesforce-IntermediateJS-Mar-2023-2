@@ -69,41 +69,24 @@ useCase("Filter", () => {
 })
 
 // modify the below using arrow function
-useCase("ForEach", function(){
-    useCase("Applying 10% discount (mutation)", function(){
-        products.forEach(function(product){
-            product.cost = product.cost * 0.9
-        })
+useCase("ForEach", () => {
+    useCase("Applying 10% discount (mutation)", () => {
+        products.forEach(product => product.cost = product.cost * 0.9)
         console.table(products)
     })
 })
 
 // modify the below using arrow function
-useCase("Map", function(){
-    useCase("Applying 10% discount (immutability)", function(){
-        const discountedProducts = products.map(function(product){
-            // ES5
-            /*  
-            return {
-                id : product.id,
-                name: product.name,
-                cost : product.cost * 0.9,
-                units : product.units,
-                category : product.category
-            } 
-            */
-            // ES6
-            return { ...product, cost : product.cost * 0.9 }
-        })
+useCase("Map", () => {
+    useCase("Applying 10% discount (immutability)", () => {
+        const discountedProducts = products.map( product => ({ ...product, cost : product.cost * 0.9 }))
         console.table(discountedProducts)
     })
 })
 
-useCase("Reduce", function(){
-    useCase("Total Products Value (sum of [cost * units])", function(){
-        const totalValue = products.reduce(function(prevResult, product){
-            return prevResult + (product.cost * product.units)
-        }, 0)
+useCase("Reduce", () => {
+    useCase("Total Products Value (sum of [cost * units])", () => {
+        const totalValue = products.reduce((prevResult, product) => prevResult + (product.cost * product.units), 0)
         console.log("Total Value : ", totalValue)
     })
 
