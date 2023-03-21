@@ -4,6 +4,9 @@
     3. array destructuring
     4. rest operator (array)
     5. spread operator (array)
+    6. object destructuring
+    7. rest operator (object)
+    8. spread operator (object)
 
 */
 
@@ -41,3 +44,16 @@ sum(10, 20)
 // output: 30
 sum(10, 20, 30, 40)
 // output: 100
+
+// 6. object destructuring
+var emp = { id: 100, name: 'Magesh', city: 'Bangalore' }
+var { id, city } = emp
+var { id: x, city: y } = emp
+
+// 7. rest operator (object)
+var emp = { id: 100, name: 'Magesh', city: 'Bangalore' }
+var { id, ...z } = emp
+
+// 8. spread operator (object)
+var emp = { id: 100, name: 'Magesh', city: 'Bangalore' }
+var newEmp = { ...emp, salary: 10000 }

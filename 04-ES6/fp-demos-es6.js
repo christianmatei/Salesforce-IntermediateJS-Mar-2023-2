@@ -68,13 +68,18 @@ useCase("ForEach", function(){
 useCase("Map", function(){
     useCase("Applying 10% discount (immutability)", function(){
         const discountedProducts = products.map(function(product){
+            // ES5
+            /*  
             return {
                 id : product.id,
                 name: product.name,
                 cost : product.cost * 0.9,
                 units : product.units,
                 category : product.category
-            }
+            } 
+            */
+            // ES6
+            return { ...product, cost : product.cost * 0.9 }
         })
         console.table(discountedProducts)
     })
@@ -91,9 +96,17 @@ useCase("Reduce", function(){
     useCase("Products grouped by category", function(){
         const productsByCategory = products.reduce(function(prevResult, product){
             const key = product.category
+            // mutating prevResult
+            /* 
             prevResult[key] = prevResult[key] || []
             prevResult[key].push(product)
-            return prevResult;
+            return prevResult; 
+            */
+
+            //immutable
+            const result = { ...prevResult, [key] : prevResult[key] || [] }
+            result[key].push(product)
+            return result
         }, {})
         console.log(productsByCategory)
     })
