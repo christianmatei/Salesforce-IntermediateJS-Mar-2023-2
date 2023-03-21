@@ -28,3 +28,51 @@ IMPORTANT NOTE:
         window.count = 10000
         spinner.up() //=> SHOULD NOT return 10001
 */
+
+// singleton - v1.0
+/* 
+var spinner = (function(){
+    var count = 0
+
+    function up(){
+        return ++count;
+    }
+    function down(){
+        return --count
+    }
+    var spinner = {
+        up : up,
+        down : down
+    }
+    return spinner;
+})() 
+*/
+
+// singleton - v2.0
+var spinner = (function () {
+    var count = 0;
+    return {
+        up: function up() {
+            return ++count;
+        },
+        down: function down() {
+            return --count
+        }
+    }
+})()
+
+// factory
+function spinnerFactory() {
+    var count = 0;
+    return {
+        up: function up() {
+            return ++count;
+        },
+        down: function down() {
+            return --count
+        }
+    }
+}
+
+var s1 = spinnerFactory()
+var s2 = spinnerFactory()
