@@ -9,6 +9,11 @@
     8. spread operator (object)
     9. default arguments
     10. arrow functions
+    11. iterators
+    12. template strings
+    13. class
+
+    Reference : https://es6-features.org
 */
 
 // let
@@ -97,3 +102,54 @@ add(100, 200)
 // output: 300
 typeof add
 // output: 'function'
+
+// 11. iterators (for-of)
+var nos = [3, 1, 4, 2, 5]
+for (let no of nos)
+    console.log(no)
+
+// 12. template strings
+let x = 100, y = 200
+let s1 = 'Sum of ' + x + ' and ' + y + ' is ' + (x + y)
+let s2 = `Sum of ${x} and ${y} is ${x + y}`
+
+// 13.class
+class Product {
+    id = 0;
+    name = '';
+    cost = 0;
+
+    constructor(id, name, cost) {
+        this.id = id;
+        this.name = name;
+        this.cost = cost;
+    }
+
+    print() {
+        return `id = ${this.id}, name = ${this.name}, cost = ${this.cost}`
+    }
+}
+
+// class with private state
+// TO BE FIXED
+class Spinner {
+    #count = 0
+    up() {
+        return ++this.#count;
+    }
+    down() {
+        return --this.#count;
+    }
+}
+
+// class inheritence
+class PerishableProduct extends Product {
+    expiry = ''
+    constructor(id, name, cost, expiry) {
+        super(id, name, cost);
+        this.expiry = expiry
+    }
+    print() {
+        return `${super.print()}, expiry = ${this.expiry}`
+    }
+}
