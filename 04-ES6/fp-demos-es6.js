@@ -1,4 +1,4 @@
-var products = [
+const products = [
     { id: 6, name: 'Pen', cost: 50, units: 20, category: 'stationary' },
     { id: 9, name: 'Ten', cost: 70, units: 70, category: 'stationary' },
     { id: 3, name: 'Len', cost: 60, units: 60, category: 'grocery' },
@@ -22,7 +22,7 @@ useCase("Filter", function(){
     // Filter (use the array.filter() method)
     // Filter all costly products (cost > 50) (result => id(9,3,7) )
     // Filter all affordable products (result => id(6,5,1))
-    var costlyProductPredicate = function (product) {
+    const costlyProductPredicate = function (product) {
         return product.cost > 50
     };
 
@@ -33,7 +33,7 @@ useCase("Filter", function(){
             }
         }
         useCase("Costly Products (cost > 50 )", function(){
-            var costlyProducts = products.filter(costlyProductPredicate)
+            const costlyProducts = products.filter(costlyProductPredicate)
             console.table(costlyProducts)
         });
 
@@ -49,8 +49,8 @@ useCase("Filter", function(){
             }; 
             */
             
-            var affordableProductPredicate = negate(costlyProductPredicate)
-            var affordableProducts = products.filter(affordableProductPredicate)
+            const affordableProductPredicate = negate(costlyProductPredicate)
+            const affordableProducts = products.filter(affordableProductPredicate)
             console.table(affordableProducts)
         })
     })
@@ -67,7 +67,7 @@ useCase("ForEach", function(){
 
 useCase("Map", function(){
     useCase("Applying 10% discount (immutability)", function(){
-        var discountedProducts = products.map(function(product){
+        const discountedProducts = products.map(function(product){
             return {
                 id : product.id,
                 name: product.name,
@@ -82,15 +82,15 @@ useCase("Map", function(){
 
 useCase("Reduce", function(){
     useCase("Total Products Value (sum of [cost * units])", function(){
-        var totalValue = products.reduce(function(prevResult, product){
+        const totalValue = products.reduce(function(prevResult, product){
             return prevResult + (product.cost * product.units)
         }, 0)
         console.log("Total Value : ", totalValue)
     })
 
     useCase("Products grouped by category", function(){
-        var productsByCategory = products.reduce(function(prevResult, product){
-            var key = product.category
+        const productsByCategory = products.reduce(function(prevResult, product){
+            const key = product.category
             prevResult[key] = prevResult[key] || []
             prevResult[key].push(product)
             return prevResult;

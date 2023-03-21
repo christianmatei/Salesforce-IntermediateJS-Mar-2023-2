@@ -1,8 +1,21 @@
+// ES5
+/* 
 function add(){
     var result = 0
     for (var i = 0; i < arguments.length; i++){
         if (!isNaN(arguments[i]))
             result += parseInt(arguments[i])
+    }
+    return result
+}
+*/
+
+// ES6
+function add(...args) {
+    var result = 0
+    for (var i = 0; i < args.length; i++) {
+        if (!isNaN(args[i]))
+            result += parseInt(args[i])
     }
     return result
 }
