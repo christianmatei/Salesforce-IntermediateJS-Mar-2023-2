@@ -79,3 +79,22 @@ useCase("Map", function(){
         console.table(discountedProducts)
     })
 })
+
+useCase("Reduce", function(){
+    useCase("Total Products Value (sum of [cost * units])", function(){
+        var totalValue = products.reduce(function(prevResult, product){
+            return prevResult + (product.cost * product.units)
+        }, 0)
+        console.log("Total Value : ", totalValue)
+    })
+
+    useCase("Products grouped by category", function(){
+        var productsByCategory = products.reduce(function(prevResult, product){
+            var key = product.category
+            prevResult[key] = prevResult[key] || []
+            prevResult[key].push(product)
+            return prevResult;
+        }, {})
+        console.log(productsByCategory)
+    })
+})

@@ -141,5 +141,15 @@ Functional Programming
                     return no * 2
                 })
         reduce
+            var nos = [3,1,6,2,5]
+            var total = nos.reduce(function(prevResult, no){
+                console.log('prevResult = ', prevResult, ' no = ', no)
+                return prevResult + no
+            })
+
+            var total = nos.reduce(function(prevResult, no){
+                console.log('prevResult = ', prevResult, ' no = ', no)
+                return prevResult + no
+            }, 0)
         some
         sort
