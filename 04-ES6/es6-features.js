@@ -7,7 +7,8 @@
     6. object destructuring
     7. rest operator (object)
     8. spread operator (object)
-
+    9. default arguments
+    10. arrow functions
 */
 
 // let
@@ -57,3 +58,42 @@ var { id, ...z } = emp
 // 8. spread operator (object)
 var emp = { id: 100, name: 'Magesh', city: 'Bangalore' }
 var newEmp = { ...emp, salary: 10000 }
+
+// 9. default arguments
+function add(x = 10, y = 20) {
+    return x + y
+}
+
+add()
+// output: 30
+add(100)
+// output: 120
+add(undefined, 200)
+// output: 210
+add(100, 200)
+// output: 300
+
+// 10. arrow functions
+/*
+// function statement
+function add(x,y){
+    return x + y
+}
+
+// function expression
+var add = function(x,y){
+    return x + y
+}
+
+// arrow function (1)
+var add = (x,y) => {
+    return x + y
+}
+*/
+
+// arrow function (2)
+var add = (x, y) => x + y
+add(100, 200)
+// output: 300
+typeof add
+// output: 'function'

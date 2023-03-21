@@ -7,31 +7,43 @@ const products = [
     { id: 7, name: 'Mouse', cost: 100, units: 20, category: 'electronics' }
 ];
 
+/* 
 function useCase(title, fn){
+    console.group(title)
+    fn()
+    console.groupEnd()
+} 
+*/
+const useCase = (title, fn) => {
     console.group(title)
     fn()
     console.groupEnd()
 }
 
-useCase('Initial List', function(){
-    console.table(products)
-})
+useCase('Initial List', () => console.table(products) )
 
 
-useCase("Filter", function(){
+useCase("Filter", () => {
     // Filter (use the array.filter() method)
     // Filter all costly products (cost > 50) (result => id(9,3,7) )
     // Filter all affordable products (result => id(6,5,1))
+    /* 
     const costlyProductPredicate = function (product) {
         return product.cost > 50
-    };
+    }; 
+    */
+    const costlyProductPredicate = product => product.cost > 50;
 
     useCase("Products by Cost", function(){
+        /* 
         function negate(predicateFn) {
             return function () {
                 return !predicateFn.apply(this, arguments)
             }
-        }
+        } 
+        */
+        const negate = fn => (...args) => !fn(...args)
+
         useCase("Costly Products (cost > 50 )", function(){
             const costlyProducts = products.filter(costlyProductPredicate)
             console.table(costlyProducts)
@@ -56,6 +68,7 @@ useCase("Filter", function(){
     })
 })
 
+// modify the below using arrow function
 useCase("ForEach", function(){
     useCase("Applying 10% discount (mutation)", function(){
         products.forEach(function(product){
@@ -65,6 +78,7 @@ useCase("ForEach", function(){
     })
 })
 
+// modify the below using arrow function
 useCase("Map", function(){
     useCase("Applying 10% discount (immutability)", function(){
         const discountedProducts = products.map(function(product){
