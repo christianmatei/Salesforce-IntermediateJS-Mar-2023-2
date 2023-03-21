@@ -98,3 +98,11 @@ Create a html page "click-tracker.html"
     and a div
 
     The page tracks how many times the button clicked and update the count in the div
+
+
+Pure Function
+    A function is called as a pure function if the invocation of the function can be replaced with the result of the function without affecting the outcome!
+
+    Will always return the same result for the given inputs
+    
+    That does not have any "side effects"
