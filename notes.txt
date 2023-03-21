@@ -132,10 +132,14 @@ Functional Programming
                     return no % 2 === 0;
                 })
 
-                
+
         forEach
         find
         map
+            ex:
+                var doubleNos = nos.map(function(no){
+                    return no * 2
+                })
         reduce
         some
         sort

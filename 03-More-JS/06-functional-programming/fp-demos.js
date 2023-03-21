@@ -25,7 +25,7 @@ useCase("Filter", function(){
     var costlyProductPredicate = function (product) {
         return product.cost > 50
     };
-    
+
     useCase("Products by Cost", function(){
         function negate(predicateFn) {
             return function () {
@@ -53,5 +53,29 @@ useCase("Filter", function(){
             var affordableProducts = products.filter(affordableProductPredicate)
             console.table(affordableProducts)
         })
+    })
+})
+
+useCase("ForEach", function(){
+    useCase("Applying 10% discount (mutation)", function(){
+        products.forEach(function(product){
+            product.cost = product.cost * 0.9
+        })
+        console.table(products)
+    })
+})
+
+useCase("Map", function(){
+    useCase("Applying 10% discount (immutability)", function(){
+        var discountedProducts = products.map(function(product){
+            return {
+                id : product.id,
+                name: product.name,
+                cost : product.cost * 0.9,
+                units : product.units,
+                category : product.category
+            }
+        })
+        console.table(discountedProducts)
     })
 })
