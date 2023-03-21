@@ -115,3 +115,27 @@ Constructor Functions
         this => new object
         this => returned by default
     Convention : Constructor Function name starts with uppercase
+
+Inheritence:
+    Prototypal Inheritence
+        One object acts as a base object for a family of objects
+
+Functional Programming
+    1. Immutability
+    2. Avoid iteration (prefer recurssion)
+
+    example APIs
+        filter
+            ex :
+                var nos = [3,1,4,2,5]
+                var evenNos = nos.filter(function(no){
+                    return no % 2 === 0;
+                })
+
+                
+        forEach
+        find
+        map
+        reduce
+        some
+        sort
