@@ -7,9 +7,51 @@ var products = [
     { id: 7, name: 'Mouse', cost: 100, units: 20, category: 'electronics' }
 ];
 
-console.log('Initial List')
-console.table(products)
+function useCase(title, fn){
+    console.group(title)
+    fn()
+    console.groupEnd()
+}
 
-// Filter (use the array.filter() method)
-// Filter all costly products (cost > 50) (result => id(9,3,7) )
-// Filter all affordable products (result => id(6,5,1))
+useCase('Initial List', function(){
+    console.table(products)
+})
+
+
+useCase("Filter", function(){
+    // Filter (use the array.filter() method)
+    // Filter all costly products (cost > 50) (result => id(9,3,7) )
+    // Filter all affordable products (result => id(6,5,1))
+    var costlyProductPredicate = function (product) {
+        return product.cost > 50
+    };
+    
+    useCase("Products by Cost", function(){
+        function negate(predicateFn) {
+            return function () {
+                return !predicateFn.apply(this, arguments)
+            }
+        }
+        useCase("Costly Products (cost > 50 )", function(){
+            var costlyProducts = products.filter(costlyProductPredicate)
+            console.table(costlyProducts)
+        });
+
+        useCase("Affordable Products (!costly products)", function(){
+            /*  
+            var affordableProductPredicate = function (product) {
+                return product.cost > 50
+            }; 
+            */
+            /* 
+            var affordableProductPredicate = function (product) {
+                return !costlyProductPredicate(product)
+            }; 
+            */
+            
+            var affordableProductPredicate = negate(costlyProductPredicate)
+            var affordableProducts = products.filter(affordableProductPredicate)
+            console.table(affordableProducts)
+        })
+    })
+})
