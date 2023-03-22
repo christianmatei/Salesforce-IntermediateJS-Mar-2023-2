@@ -1,0 +1,32 @@
+{
+  "bugs": [
+    {
+      "id": 5,
+      "name": "Application not responding",
+      "isClosed": true,
+      "createdAt": "2021-08-19T11:28:05.490Z"
+    },
+    {
+      "id": 6,
+      "name": "User action not recognized",
+      "isClosed": false,
+      "createdAt": "2021-08-20T06:41:16.585Z"
+    },
+    {
+      "id": 7,
+      "name": "Unable to toggle the bug",
+      "isClosed": true,
+      "createdAt": "2021-08-20T06:52:51.628Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Bug Tracker"
+    },
+    {
+      "id": 2,
+      "name": "Project Management"
+    }
+  ]
+}
