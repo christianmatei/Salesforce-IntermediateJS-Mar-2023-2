@@ -57,4 +57,26 @@
     }
     window['addAsyncPromiseClient'] = addAsyncPromiseClient;
 
+    function divideAsyncPromise(x, y) {
+        console.log(`   [@service] initializing processing ${x} and ${y}`)
+        const p = new Promise(function (resolveFn, rejectFn) {
+            setTimeout(function () {
+                if (y === 0)
+                    return rejectFn(new Error('Cannot divide by 0'))
+                const result = x / y
+                console.log(`   [@service] returning the result`)
+                resolveFn(result)
+            }, Math.random() * 10000);
+        })
+        return p;
+    }
+
+    function divideAsyncPromiseClient(x,y){
+        console.log(`[@client] invoking the service`);
+        var p = divideAsyncPromise(x, y)
+        p.then(result => console.log(`[@client] result = ${result}`))
+        p.catch(err => console.log('[@client] something went wrong - ', err))
+    }
+
+    window['divideAsyncPromiseClient'] = divideAsyncPromiseClient
 })()
