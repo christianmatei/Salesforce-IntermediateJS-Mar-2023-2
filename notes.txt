@@ -153,3 +153,15 @@ Functional Programming
             }, 0)
         some
         sort
+
+Implement a Publisher-Subscriber using the following usecase
+ShoppingCart
+    -add(productName, UnitCost, Units)
+    -items()
+        return the list of products added with "ItemValue" (UnitCost * Units)
+    -total()
+        returns the Total ShoppingCart Value (Sum of itemValues)
+    -events
+        -maxLimitExceeded
+
+Create a pubsub library
