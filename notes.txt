@@ -164,4 +164,10 @@ ShoppingCart
     -events
         -maxLimitExceeded
 
-Create a pubsub library
+Asynchronous Programming
+    Asynchronous Operation
+        - An operation that is initiated, will complete sometime in future and not waited for its completion
+    Techniques
+        - Callback
+        - Promise
+        - Async Await
