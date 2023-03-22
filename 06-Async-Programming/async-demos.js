@@ -36,11 +36,11 @@
 
     // Async - (using promise)
     function addAsyncPromise(x, y) {
-        console.log(`   [@service] initializing processing ${x} and ${y}`)
+        console.log(`   [@service] initializing [add] processing ${x} and ${y}`)
         const p = new Promise(function(resolveFn, rejectFn){
             setTimeout(function () {
                 const result = x + y
-                console.log(`   [@service] returning the result`)
+                console.log(`   [@service] returning [add] the result`)
                 resolveFn(result)
             }, Math.random() * 10000);
         })        
@@ -49,24 +49,40 @@
 
     window['addAsyncPromise'] = addAsyncPromise;
 
+
+    
+    /* 
     function addAsyncPromiseClient(x,y){
         console.log(`[@client] invoking the service`);
         var p = addAsyncPromise(x,y)
         //.then(fn), .catch(fn)
-        p.then(result => {
+        return p.then(result => {
             console.log(`[@client] result = ${result}`);
         })
-    }
+    } 
+    */ 
+   
+
+    
+   async function addAsyncPromiseClient(x, y) {
+        console.log(`[@client] invoking the service`);
+        var result = await addAsyncPromise(x, y)
+        console.log(`[@client] result = ${result}`);
+        const doubleResult = result * 2
+        return doubleResult;
+    }  
+   
+
     window['addAsyncPromiseClient'] = addAsyncPromiseClient;
 
     function divideAsyncPromise(x, y) {
-        console.log(`   [@service] initializing processing ${x} and ${y}`)
+        console.log(`   [@service] initializing [divide] processing ${x} and ${y}`)
         const p = new Promise(function (resolveFn, rejectFn) {
             setTimeout(function () {
                 if (y === 0)
                     return rejectFn(new Error('Cannot divide by 0'))
                 const result = x / y
-                console.log(`   [@service] returning the result`)
+                console.log(`   [@service] returning [divide] the result`)
                 resolveFn(result)
             }, Math.random() * 10000);
         })
@@ -81,6 +97,59 @@
     }
 
     window['divideAsyncPromiseClient'] = divideAsyncPromiseClient
+
+    /* 
+    async function doAddAndDivide(x,y){
+        const addResult = await addAsyncPromise(x,y)
+        console.log(`addResult = ${addResult}`)
+        const divideResult = await divideAsyncPromise(x,y)
+        console.log(`divideResult = ${divideResult}`)
+    } 
+    */
+
+    /* function doAddAndDivide(x, y) {
+        addAsyncPromise(x, y)
+            .then(addResult => {
+                console.log(`addResult = ${addResult}`)
+                divideAsyncPromise(x, y)
+                    .then(divideResult => {
+                        console.log(`divideResult = ${divideResult}`)
+                    })
+            })
+    }  */
+
+   /* 
+    function doAddAndDivide(x, y) {
+        addAsyncPromise(x, y)
+            .then(addResult => {
+                console.log(`addResult = ${addResult}`)
+            })
+        divideAsyncPromise(x, y)
+            .then(divideResult => {
+                console.log(`divideResult = ${divideResult}`)
+            })
+    }  
+    */
+    /* 
+    function doAddAndDivide(x, y) {
+        const addPromise = addAsyncPromise(x, y)
+        const dividePromise = divideAsyncPromise(x, y)
+        Promise.all([addPromise, dividePromise])
+            .then(([addResult, divideResult]) => {
+                console.log(`addResult = ${addResult}`)
+                console.log(`divideResult = ${divideResult}`)
+            })
+    }  
+    */ 
+    async function doAddAndDivide(x, y) {
+        const addPromise = addAsyncPromise(x, y)
+        const dividePromise = divideAsyncPromise(x, y)
+        const [addResult, divideResult] = await Promise.all([addPromise, dividePromise])
+        console.log(`addResult = ${addResult}`)
+        console.log(`divideResult = ${divideResult}`)
+    } 
+
+    window['doAddAndDivide'] = doAddAndDivide
 })()
 
 // Promise Chaining 
