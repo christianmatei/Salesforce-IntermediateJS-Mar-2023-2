@@ -181,3 +181,17 @@ HTML5 APIs
     WebSockets
 
 Webpack
+    Web Application Bundler
+
+    1. Minify the JS files
+    2. Uglify the JS files
+    3. Bundle the JS files
+    4. Version the JS Bundle file
+    5. Minify CSS files
+    6. Bundle the CSS files
+    7. Version the CSS Bundle file
+    8. Update the references of the generated files in the index.html
+    9. Minify the index.html file
+
+    Setup:
+        npm init -y
