@@ -103,6 +103,18 @@ function memoize(fn, keyFn) {
         return cache[key]
     }
 }
+
+// Generic memoize - v4.0 (ES6)
+function memoize(fn, keyFn) {
+    var cache = {}
+    return function (...args) {
+        var key = keyFn(...args)
+        if (cache.hasOwnProperty(key))
+            return cache[key]
+        cache[key] = fn(...args)
+        return cache[key]
+    }
+}
 var add = memoize(function (x, y) {
     console.log('processing ', x, ' and ', y)
     return x + y
