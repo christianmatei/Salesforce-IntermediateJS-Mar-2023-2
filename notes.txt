@@ -172,3 +172,12 @@ Asynchronous Programming
         - Promise
         - Async Await
         - Observables (rxjs)
+
+HTML5 APIs
+    WebWorker
+        Thread like infrastructure
+        to start a web server
+            npx http-server -c -1
+    WebSockets
+
+Webpack
