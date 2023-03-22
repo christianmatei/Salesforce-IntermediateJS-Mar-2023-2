@@ -47,6 +47,8 @@
         return p;
     }
 
+    window['addAsyncPromise'] = addAsyncPromise;
+
     function addAsyncPromiseClient(x,y){
         console.log(`[@client] invoking the service`);
         var p = addAsyncPromise(x,y)
@@ -80,3 +82,55 @@
 
     window['divideAsyncPromiseClient'] = divideAsyncPromiseClient
 })()
+
+// Promise Chaining 
+/* 
+// follow up operation is an async operation
+var p = addAsyncPromise(100,200)
+var p2 = p.then(result => {
+    console.log(`[@client] result = ${result}`);
+    var p2 = new Promise((resolveFn, rejectFn) => {
+        setTimeout(() => {
+            const doubleResult = result * 2;
+            resolveFn(doubleResult)
+        }, 5000);
+    })
+    return p2;
+});
+p2.then(doubleResult => console.log(`doubleResult = ${doubleResult}`))
+*/
+
+// follow up operation is a sync operation (and it STILL has to return a promise)
+/*
+var p = addAsyncPromise(100,200)
+var p2 = p.then(result => {
+    console.log(`[@client] result = ${result}`);
+    const p2 = new Promise((resolveFn, rejectFn) => {
+        const doubleResult = result * 2;
+        resolveFn(doubleResult);
+    })
+    return p2;
+});
+p2.then(doubleResult => console.log(`doubleResult = ${doubleResult}`))
+*/
+
+/*
+var p = addAsyncPromise(100,200)
+var p2 = p.then(result => {
+    console.log(`[@client] result = ${result}`);
+    const doubleResult = result * 2;
+    const p2 = Promise.resolve(doubleResult)
+    return p2;
+});
+p2.then(doubleResult => console.log(`doubleResult = ${doubleResult}`))
+*/
+
+/* 
+addAsyncPromise(100,200)
+    .then(result => {
+        console.log(`[@client] result = ${result}`);
+        const doubleResult = result * 2;
+        return doubleResult;
+    })
+    .then(doubleResult => console.log(`doubleResult = ${doubleResult}`))
+*/
