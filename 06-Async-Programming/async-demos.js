@@ -89,11 +89,24 @@
         return p;
     }
 
+    /* 
     function divideAsyncPromiseClient(x,y){
         console.log(`[@client] invoking the service`);
         var p = divideAsyncPromise(x, y)
         p.then(result => console.log(`[@client] result = ${result}`))
         p.catch(err => console.log('[@client] something went wrong - ', err))
+    } 
+    */
+
+    //using async await in divideAsyncPromiseClient
+    async function divideAsyncPromiseClient(x, y) {
+        try {
+            console.log(`[@client] invoking the service`);
+            const result = await divideAsyncPromise(x, y)
+            console.log(`[@client] result = ${result}`)
+        } catch(err){
+            console.log('[@client] something went wrong - ', err)
+        }
     }
 
     window['divideAsyncPromiseClient'] = divideAsyncPromiseClient
@@ -142,11 +155,15 @@
     }  
     */ 
     async function doAddAndDivide(x, y) {
-        const addPromise = addAsyncPromise(x, y)
-        const dividePromise = divideAsyncPromise(x, y)
-        const [addResult, divideResult] = await Promise.all([addPromise, dividePromise])
-        console.log(`addResult = ${addResult}`)
-        console.log(`divideResult = ${divideResult}`)
+        try {
+            const addPromise = addAsyncPromise(x, y)
+            const dividePromise = divideAsyncPromise(x, y)
+            const [addResult, divideResult] = await Promise.all([addPromise, dividePromise])
+            console.log(`addResult = ${addResult}`)
+            console.log(`divideResult = ${divideResult}`)
+        }catch(err){
+            console.log('[@client] something went wrong - ', err)
+        }
     } 
 
     window['doAddAndDivide'] = doAddAndDivide
