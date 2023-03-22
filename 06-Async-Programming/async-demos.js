@@ -15,7 +15,7 @@
     }
     window['addSyncClient'] = addSyncClient;
 
-    // Async
+    // Async - (using callback)
     function addAsync(x, y, callback) {
         console.log(`   [@service] initializing processing ${x} and ${y}`)
         setTimeout(function(){
@@ -33,5 +33,28 @@
         })
     }
     window['addAsyncClient'] = addAsyncClient;
+
+    // Async - (using promise)
+    function addAsyncPromise(x, y) {
+        console.log(`   [@service] initializing processing ${x} and ${y}`)
+        const p = new Promise(function(resolveFn, rejectFn){
+            setTimeout(function () {
+                const result = x + y
+                console.log(`   [@service] returning the result`)
+                resolveFn(result)
+            }, Math.random() * 10000);
+        })        
+        return p;
+    }
+
+    function addAsyncPromiseClient(x,y){
+        console.log(`[@client] invoking the service`);
+        var p = addAsyncPromise(x,y)
+        //.then(fn), .catch(fn)
+        p.then(result => {
+            console.log(`[@client] result = ${result}`);
+        })
+    }
+    window['addAsyncPromiseClient'] = addAsyncPromiseClient;
 
 })()
