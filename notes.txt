@@ -194,4 +194,16 @@ Webpack
     9. Minify the index.html file
 
     Setup:
-        npm init -y
+        npm install
+
+    To start 
+        npm start
+    To build
+        npm run build
+
+Jest
+    Unit Testing Framework
+    APIs for organizing test cases
+    APIs for performing assertions
+    APIs for mocking
+    
