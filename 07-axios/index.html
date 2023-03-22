@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bugs</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <style>
+        table{
+            border: 1px solid #000;
+            
+        }
+        tr{
+            margin: 10px;
+            border: 1px solid #000;
+        }
+        td{
+            padding-right: 10px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script>
+        (() => {
+            const bugApi = 'http://localhost:3000/bugs'
+            async function getBugs(){
+                const response = await axios.get(bugApi)
+                return response.data;
+            }
+            async function onDocumentLoad() {
+                const bugs = await getBugs()
+                const bugRows = bugs.reduce((prevResult, bug) => `${prevResult}<tr><td>${bug.id}</td><td>${bug.name}</td><td>${bug.isClosed}</td><td>${bug.createdAt}</td></tr>`, '<thead><tr><td>Id</td><td>Name</td><td>Status</td><td>CreatedAt</td></tr></thead>')
+                const bugsTable = `<table>${bugRows}</table>`
+                document.getElementById('bugsList').innerHTML = bugsTable
+            }
+            window.addEventListener('load', onDocumentLoad);
+        })();
+    </script>
+</head>
+<body>
+    <div id="bugsList">
+
+    </div>
+</body>
+</html>

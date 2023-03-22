@@ -17,6 +17,12 @@
       "name": "Unable to toggle the bug",
       "isClosed": true,
       "createdAt": "2021-08-20T06:52:51.628Z"
+    },
+    {
+      "name": "Curl not working",
+      "isClosed": false,
+      "createdAt": "2023-03-22T18:48:34.763Z",
+      "id": 8
     }
   ],
   "projects": [
